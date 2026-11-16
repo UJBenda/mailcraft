@@ -22,7 +22,7 @@ msgid "\"{address}\" isn't an address mail can be sent to"
 msgstr "„{address}” nie jest adresem, na który można wysłać pocztę"
 
 #. interface, what a command says
-#: crates/engine/src/cmd/calendar.rs crates/engine/src/cmd/compose.rs crates/ui-egui/src/account_setup.rs
+#: crates/engine/src/cmd/calendar.rs crates/engine/src/cmd/compose.rs crates/engine/src/cmd/senders.rs crates/ui-egui/src/account_setup.rs crates/ui-egui/src/account_setup/senders.rs
 #, fuzzy
 msgid "\"{address}\" isn't an e-mail address"
 msgstr "„{address}” nie jest adresem e-mail"
@@ -749,8 +749,8 @@ msgstr ""
 "Ustawienia\n"
 "konta"
 
-#. command label, interface
-#: crates/engine/src/cmd/account.rs crates/ui-egui/src/account_setup.rs
+#. command label, interface, ribbon location
+#: crates/engine/src/cmd/account.rs crates/engine/src/cmd/senders.rs crates/ui-egui/src/account_setup.rs
 #, fuzzy
 msgid "Account Settings"
 msgstr "Ustawienia konta"
@@ -760,6 +760,11 @@ msgstr "Ustawienia konta"
 #, fuzzy
 msgid "Account name"
 msgstr "Nazwa konta"
+
+#. interface
+#: crates/ui-egui/src/account_setup/senders.rs
+msgid "Account's signature"
+msgstr ""
 
 #. android, interface, ribbon
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/Navigation.kt crates/ui-egui/src/backstage.rs crates/ui-egui/src/ribbon.rs
@@ -934,6 +939,11 @@ msgid "Add account"
 msgstr "Dodaj konto"
 
 #. interface
+#: crates/ui-egui/src/account_setup/senders.rs
+msgid "Add address"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/account_setup.rs
 #, fuzzy
 msgid "Add an account"
@@ -1034,7 +1044,7 @@ msgid "Added by a newer version of MailCraft: send and receive with it there"
 msgstr "Dodane przez nowszą wersję programu MailCraft: wysyłaj i odbieraj pocztę za jej pomocą"
 
 #. android, interface
-#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/ComposerScreen.kt crates/ui-egui/src/dialogs.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/merge_contacts.rs crates/ui-egui/src/people_view.rs
+#: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/ComposerScreen.kt crates/ui-egui/src/account_setup/senders.rs crates/ui-egui/src/dialogs.rs crates/ui-egui/src/forms.rs crates/ui-egui/src/merge_contacts.rs crates/ui-egui/src/people_view.rs
 #, fuzzy
 msgid "Address"
 msgstr "Adres"
@@ -1050,6 +1060,11 @@ msgstr "Adres:"
 #, fuzzy
 msgid "Addresses separated by ; (leave empty for replies to come to you)"
 msgstr "Adresy oddzielone znakiem ; (pozostaw puste, aby odpowiedzi przychodziły do Ciebie)"
+
+#. interface
+#: crates/ui-egui/src/account_setup/senders.rs
+msgid "Addresses your mail server lets this account send from with the same sign-in, such as aliases. Replies are sent from the address a message came to."
+msgstr ""
 
 #. android
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/CalendarEditor.kt
@@ -1350,6 +1365,11 @@ msgstr "Certyfikat X.509 (.cer, .pem) lub klucz publiczny OpenPGP (.asc) tego ko
 #, fuzzy
 msgid "An account couldn't be sent and received."
 msgstr "Nie udało się wysłać i odebrać poczty dla konta."
+
+#. interface
+#: crates/ui-egui/src/account_setup/senders.rs
+msgid "An address this account may send from"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/reading/warnings.rs
@@ -5267,7 +5287,7 @@ msgid "Fewer than two of these contacts are still here, so there is nothing to m
 msgstr "Zostało mniej niż dwa z tych kontaktów, więc nie ma czego scalać."
 
 #. command label, name, ribbon location
-#: crates/engine/src/cmd/account.rs crates/engine/src/cmd/auto_replies.rs crates/engine/src/cmd/calendar/invitation.rs crates/engine/src/cmd/calendar_extra.rs crates/engine/src/cmd/calendar_opened.rs crates/engine/src/cmd/calendar_settings.rs crates/engine/src/cmd/calendar_subscribed.rs crates/engine/src/cmd/dav_account.rs crates/engine/src/cmd/device_limits.rs crates/engine/src/cmd/file.rs crates/engine/src/cmd/folder.rs crates/engine/src/cmd/graph_switch.rs crates/engine/src/cmd/help.rs crates/engine/src/cmd/keys.rs crates/engine/src/cmd/offline.rs crates/engine/src/cmd/shared.rs crates/engine/src/cmd/signature.rs crates/engine/src/cmd/tasks_remote.rs crates/engine/src/cmd/zones.rs crates/ui-egui/src/lib.rs crates/ui-egui/src/menubar.rs
+#: crates/engine/src/cmd/account.rs crates/engine/src/cmd/auto_replies.rs crates/engine/src/cmd/calendar/invitation.rs crates/engine/src/cmd/calendar_extra.rs crates/engine/src/cmd/calendar_opened.rs crates/engine/src/cmd/calendar_settings.rs crates/engine/src/cmd/calendar_subscribed.rs crates/engine/src/cmd/dav_account.rs crates/engine/src/cmd/device_limits.rs crates/engine/src/cmd/file.rs crates/engine/src/cmd/folder.rs crates/engine/src/cmd/graph_switch.rs crates/engine/src/cmd/help.rs crates/engine/src/cmd/keys.rs crates/engine/src/cmd/offline.rs crates/engine/src/cmd/senders.rs crates/engine/src/cmd/shared.rs crates/engine/src/cmd/signature.rs crates/engine/src/cmd/tasks_remote.rs crates/engine/src/cmd/zones.rs crates/ui-egui/src/lib.rs crates/ui-egui/src/menubar.rs
 #, fuzzy
 msgid "File"
 msgstr "Plik"
@@ -9017,7 +9037,7 @@ msgid "Name"
 msgstr "Nazwa"
 
 #. interface
-#: crates/ui-egui/src/dialogs.rs
+#: crates/ui-egui/src/account_setup/senders.rs crates/ui-egui/src/dialogs.rs
 #, fuzzy
 msgid "Name (optional)"
 msgstr "Nazwa (opcjonalnie)"
@@ -10856,6 +10876,11 @@ msgstr "Inne kalendarze"
 msgid "Other accounts and On this computer"
 msgstr "Inne konta i Na tym komputerze"
 
+#. interface
+#: crates/ui-egui/src/account_setup/senders.rs
+msgid "Other addresses you send from"
+msgstr ""
+
 #. what a command says
 #: crates/engine/src/cmd/calendar_opened.rs
 #, fuzzy
@@ -12037,6 +12062,11 @@ msgstr "Usunąć to konto?"
 #, fuzzy
 msgid "Remove this action"
 msgstr "Usuń tę akcję"
+
+#. interface
+#: crates/ui-egui/src/account_setup/senders.rs
+msgid "Remove this address"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/forms.rs
@@ -13437,6 +13467,11 @@ msgstr "Wyślij/Odbierz przez JMAP"
 msgid "Send/Receive with Microsoft Graph"
 msgstr "Wyślij/Odbierz przez Microsoft Graph"
 
+#. command label
+#: crates/engine/src/cmd/senders.rs
+msgid "Sender Addresses"
+msgstr ""
+
 #. android
 #: apps/mailcraft-android/app/src/main/kotlin/work/mailcraft/android/SettingsSummaries.kt
 #, fuzzy
@@ -13601,6 +13636,11 @@ msgstr "Ustawienia serwera"
 #, fuzzy
 msgid "Server: {address}"
 msgstr "Serwer: {address}"
+
+#. command label
+#: crates/engine/src/cmd/senders.rs
+msgid "Set Sender Addresses"
+msgstr ""
 
 #. name
 #: crates/ui-egui/src/forms.rs
@@ -16086,6 +16126,11 @@ msgstr "Nazwa to inna domena."
 #, fuzzy
 msgid "The name of someone you know."
 msgstr "Nazwa kogoś, kogo znasz."
+
+#. interface
+#: crates/ui-egui/src/account_setup/senders.rs
+msgid "The name recipients see; your own when empty"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/dialogs.rs
@@ -19604,6 +19649,11 @@ msgstr "plik .pst jest importowany tylko do folderu na tym komputerze, nigdy do 
 msgid "a JMAP account's server and address can't be changed once its mail is here: remove it and add the other one"
 msgstr "serwera i adresu konta JMAP nie można zmienić, gdy jego poczta już tu jest: usuń je i dodaj drugie"
 
+#. what a command says
+#: crates/engine/src/cmd/senders.rs
+msgid "a Microsoft or Exchange account sends from other addresses only as its server allows, which MailCraft doesn't ask for yet"
+msgstr ""
+
 #. why a mail server couldn't be used
 #: crates/net/src/sync.rs
 #, fuzzy
@@ -19748,6 +19798,11 @@ msgstr "reguła jednego konta nie może trafić na serwer innego konta"
 msgid "a rule waiting to go to the server goes after those there; it can be moved once it is there"
 msgstr "reguła czekająca na wysłanie na serwer trafia za te, które już tam są; można ją przenieść, gdy już tam będzie"
 
+#. interface, what a command says
+#: crates/engine/src/cmd/senders.rs crates/ui-egui/src/account_setup/senders.rs
+msgid "a sender address has no e-mail address"
+msgstr ""
+
 #. what a command says
 #: crates/engine/src/cmd/account.rs
 #, fuzzy
@@ -19873,6 +19928,11 @@ msgstr "konto staje się kontem serwera Exchange lub przestaje nim być tylko pr
 #, fuzzy
 msgid "an account can't be put before itself"
 msgstr "konta nie można umieścić przed nim samym"
+
+#. interface, what a command says
+#: crates/engine/src/cmd/senders.rs crates/ui-egui/src/account_setup/senders.rs
+msgid "an account has {max} sender addresses at most"
+msgstr ""
 
 #. what a command says
 #: crates/engine/src/cmd/calendar.rs
@@ -20456,7 +20516,7 @@ msgid "no account with id {account}"
 msgstr "brak konta o identyfikatorze {account}"
 
 #. what a command says
-#: crates/engine/src/cmd/account.rs crates/engine/src/cmd/calendar_opened.rs crates/engine/src/cmd/calendar_settings.rs crates/engine/src/cmd/compose.rs crates/engine/src/cmd/dav_account.rs crates/engine/src/cmd/ews_mail.rs crates/engine/src/cmd/folder.rs crates/engine/src/cmd/graph_mail.rs crates/engine/src/cmd/graph_send.rs crates/engine/src/cmd/graph_switch.rs crates/engine/src/cmd/jmap_mail.rs crates/engine/src/cmd/offline.rs crates/engine/src/cmd/remote.rs crates/engine/src/cmd/rules.rs crates/engine/src/cmd/search_server.rs crates/engine/src/cmd/shared.rs crates/engine/src/cmd/signature.rs
+#: crates/engine/src/cmd/account.rs crates/engine/src/cmd/calendar_opened.rs crates/engine/src/cmd/calendar_settings.rs crates/engine/src/cmd/compose.rs crates/engine/src/cmd/dav_account.rs crates/engine/src/cmd/ews_mail.rs crates/engine/src/cmd/folder.rs crates/engine/src/cmd/graph_mail.rs crates/engine/src/cmd/graph_send.rs crates/engine/src/cmd/graph_switch.rs crates/engine/src/cmd/jmap_mail.rs crates/engine/src/cmd/offline.rs crates/engine/src/cmd/remote.rs crates/engine/src/cmd/rules.rs crates/engine/src/cmd/search_server.rs crates/engine/src/cmd/senders.rs crates/engine/src/cmd/shared.rs crates/engine/src/cmd/signature.rs
 #, fuzzy
 msgid "no account with id {id}"
 msgstr "brak konta o identyfikatorze {id}"
@@ -20611,8 +20671,8 @@ msgstr "żaden podpis nie jest otwarty"
 msgid "no signature named \"{from}\""
 msgstr "brak podpisu o nazwie „{from}”"
 
-#. what a command says
-#: crates/engine/src/cmd/compose.rs crates/engine/src/cmd/signature.rs
+#. interface, what a command says
+#: crates/engine/src/cmd/compose.rs crates/engine/src/cmd/senders.rs crates/engine/src/cmd/signature.rs crates/ui-egui/src/account_setup/senders.rs
 #, fuzzy
 msgid "no signature named \"{name}\""
 msgstr "brak podpisu o nazwie „{name}”"
@@ -20766,6 +20826,11 @@ msgstr "w"
 #, fuzzy
 msgid "only a message you sent can be sent again"
 msgstr "ponownie można wysłać tylko wiadomość, którą wysłano"
+
+#. what a command says
+#: crates/engine/src/cmd/senders.rs
+msgid "only an IMAP account sends from other addresses"
+msgstr ""
 
 #. why a command can't run
 #: crates/engine/src/gmail.rs
@@ -22488,6 +22553,11 @@ msgid "{address} is already set up"
 msgstr "{address} jest już skonfigurowany"
 
 #. what a command says
+#: crates/engine/src/cmd/compose.rs
+msgid "{address} is no longer one of this account's sender addresses: choose another From"
+msgstr ""
+
+#. what a command says
 #: crates/engine/src/cmd/junk.rs
 #, fuzzy
 msgid "{address} is one of your own addresses: your own mail isn't blocked"
@@ -22504,6 +22574,11 @@ msgstr "{address} jest skonfigurowany"
 #, fuzzy
 msgid "{address} isn't a shared mailbox open here."
 msgstr "{address} nie jest udostępnioną skrzynką pocztową otwartą tutaj."
+
+#. what a command says
+#: crates/engine/src/cmd/compose.rs
+msgid "{address} isn't one of this account's sender addresses (add it in Account Settings)"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/shared_mailboxes.rs

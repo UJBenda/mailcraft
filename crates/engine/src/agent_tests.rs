@@ -204,3 +204,22 @@ fn the_account_question_names_a_local_mailbox_and_the_only_account() {
     assert_eq!(describe(&s, "account.remove", &json!({"id": 999_999})), "remove an account that isn't there");
     assert_eq!(describe(&s, "account.edit", &json!({"id": 999_999})), "change an account that isn't there");
 }
+
+#[test]
+fn the_sender_addresses_question_names_the_names_and_the_replacement() {
+    let mut s = Session::empty();
+    let id = s
+        .run("account.add", &json!({"email": "ada@example.org", "incoming": {"host": "imap.example.org"}, "outgoing": {"host": "smtp.example.org"}}))
+        .unwrap()["id"]
+        .as_u64()
+        .unwrap();
+    let list = json!([{"email": "support@example.org", "displayName": "Example Support"}, {"email": "sales@example.org"}]);
+    let d = describe(&s, "account.setSenderAddresses", &json!({"id": id, "addresses": list}));
+    assert!(d.contains("whole list") && d.contains("support@example.org (shown as Example Support)") && d.contains("sales@example.org"), "{d}");
+    // A signature the owner picked is part of the question too.
+    let list = json!([{"email": "support@example.org", "displayName": "Example Support", "signature": "Support"}, {"email": "sales@example.org", "signature": "Sales"}]);
+    let d = describe(&s, "account.setSenderAddresses", &json!({"id": id, "addresses": list}));
+    assert!(d.contains("(shown as Example Support, signature Support)") && d.contains("sales@example.org (signature Sales)"), "{d}");
+    let d = describe(&s, "account.setSenderAddresses", &json!({"id": id, "addresses": []}));
+    assert!(d.contains("whole list") && d.contains("none"), "{d}");
+}
