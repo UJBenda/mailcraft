@@ -2851,6 +2851,11 @@ msgid "Check Now"
 msgstr "Ellenőrizze most"
 
 #. interface
+#: crates/ui-egui/src/send_warnings.rs
+msgid "Check Recipients"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/account_setup.rs
 #, fuzzy
 msgid "Check both servers before you connect."
@@ -2885,6 +2890,11 @@ msgstr "Új verziók ellenőrzése"
 #, fuzzy
 msgid "Check the account's settings"
 msgstr "Ellenőrizze a fiók beállításait"
+
+#. interface
+#: crates/ui-egui/src/agent_gate.rs crates/ui-egui/src/send_warnings.rs
+msgid "Check the recipients before this message goes:"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/security.rs
@@ -8883,6 +8893,11 @@ msgid "Move this rule up: it runs earlier"
 msgstr "A szabály feljebb helyezése. Korábban fog lefutni."
 
 #. interface
+#: crates/ui-egui/src/agent_gate.rs crates/ui-egui/src/send_warnings.rs
+msgid "Move to Bcc"
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/calendar_view.rs
 #, fuzzy
 msgid "Move to Calendar"
@@ -13083,6 +13098,11 @@ msgstr "Küldés/fogadás"
 #, fuzzy
 msgid "Send Again"
 msgstr "Újraküldés"
+
+#. interface
+#: crates/ui-egui/src/agent_gate.rs crates/ui-egui/src/send_warnings.rs
+msgid "Send Anyway"
+msgstr ""
 
 #. interface
 #: crates/ui-egui/src/dialogs.rs
@@ -17467,6 +17487,13 @@ msgid "This message has a warning about its sender: move it to Junk E-mail inste
 msgstr "Ez az üzenet figyelmeztetést kapott a feladójáról: leiratkozás helyett helyezze át a Levélszemét mappába."
 
 #. interface
+#: crates/ui-egui/src/send_warnings.rs
+msgid "This message has more recipients than MailCraft checks: only the first one was looked at."
+msgid_plural "This message has more recipients than MailCraft checks: only the first {n} were looked at."
+msgstr[0] ""
+msgstr[1] ""
+
+#. interface
 #: crates/ui-egui/src/reading/view.rs
 #, fuzzy
 msgid "This message has no text."
@@ -20603,6 +20630,11 @@ msgid "not known until the first Send/Receive"
 msgstr "nem ismert az első Küldés/fogadóig"
 
 #. what a command says
+#: crates/engine/src/cmd/compose.rs
+msgid "not sent: {why}. Send with \"confirmed\": true to send it anyway, or with \"moveToBcc\": true to move the people outside the organisation to Bcc first"
+msgstr ""
+
+#. what a command says
 #: crates/engine/src/cmd/format.rs
 #, fuzzy
 msgid "nothing is selected in the message"
@@ -22417,6 +22449,11 @@ msgid "{address} isn't a shared mailbox open here."
 msgstr "A(z) {address} nincs megnyitva megosztott postafiókként."
 
 #. interface
+#: crates/ui-egui/src/send_warnings.rs
+msgid "{address} looks like {like}, which you write to, but isn't the same address."
+msgstr ""
+
+#. interface
 #: crates/ui-egui/src/shared_mailboxes.rs
 #, fuzzy
 msgid "{address}: {error}. It will try again at the next Send/Receive."
@@ -23647,6 +23684,13 @@ msgid "{n} person is invited to this meeting."
 msgid_plural "{n} people are invited to this meeting."
 msgstr[0] "Az értekezletre {n} résztvevő kapott meghívót."
 msgstr[1] "Az értekezletre {n} résztvevő kapott meghívót."
+
+#. interface
+#: crates/ui-egui/src/send_warnings.rs
+msgid "{n} person outside your organisation, at {domains} domains, would see the others' addresses in To and Cc."
+msgid_plural "{n} people outside your organisation, at {domains} domains, would see each other's addresses in To and Cc."
+msgstr[0] ""
+msgstr[1] ""
 
 #. interface
 #: crates/ui-egui/src/forms.rs
